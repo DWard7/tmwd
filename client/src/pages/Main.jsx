@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Movies from "../components/Movies";
+import { motion } from "framer-motion"
+import "../templates/style.css"
 
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_SECRET}&query=`;
 const TOP_RATED_API = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_SECRET}&language=en-US&page=1`;
@@ -47,21 +49,23 @@ function Main() {
             id="search"
             name="search"
           />
-          <button
+          <motion.button
             style={{ marginLeft: "25px" }}
             type="submit"
             className="btn btn-outline-primary rounded-pill"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}
           >
             Search
-          </button>
+          </motion.button>
         </div>
       </form>
-      <h1 className="text-center mt-5" style={{ color: "whitesmoke" }}>
+      <h1 className="text-center mt-5" style={{ color: "whitesmoke", fontSize:"2rem" }}>
         Top Rated Movies
       </h1>
-      <div style={{ margin: "30px" }} className="d-flex flex-wrap gap-3">
-        {movies && movies.map((movie) => <Movies key={movie.id} {...movie} />)}
-      </div>
+      <ul className="movies" style={{ margin: "30px" }}>
+        <li className="d-flex gap-3">{movies && movies.map((movie) => <Movies key={movie.id} {...movie} />)}</li>
+      </ul>
     </div>
   );
 }
