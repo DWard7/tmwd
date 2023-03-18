@@ -11,7 +11,7 @@ const navigation = [
 ];
 
 const login = [{ name: "Login", href: "/login", current: false }];
-const signOut = [{ name: "Logout", href: "/login", current: false }];
+const signOut = [{ name: "Logout", href: "/", current: false }];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join("");

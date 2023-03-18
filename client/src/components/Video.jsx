@@ -10,12 +10,13 @@ function Video() {
   const { id } = useParams();
   const [movie, setMovie] = useState('');
 
-  const renderTrailer = () => {
-    const trailer = movie.videos.results.find(
-      (vid) => vid.name === "Official Trailer" || "Trailer"
-    );
-    return <YouTube videoId={trailer.key} />;
+  const trailer = () => {
+    const videos = movie.videos.results.find(
+      (videos) => videos.type === "Trailer"
+    )
+    return <YouTube videoId={videos.key} />;
   };
+
 
   useEffect(() => {
     const controller = new AbortController();
@@ -37,7 +38,7 @@ function Video() {
   <div className="container">
     <div className="d-flex flex-column align-items-center mt-3">
       <h1 className="mb-5" style={{color:"whitesmoke"}}>Movie Trailer</h1>
-      {movie.videos ? renderTrailer() : null}
+      {movie.videos ? trailer() : null}
     </div>
     </div>
     );

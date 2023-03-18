@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Shows from "../components/Shows";
 import { motion } from "framer-motion";
 
-const TOP_RATED_TV_API = `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_API_SECRET}&language=en-US&page=1`;
+const DISCOVER_TV_API = `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_API_SECRET}&language=en-US&page=1`;
 const SEARCH_API_TV = `https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_API_SECRET}&query=`;
 
 function TVShow() {
@@ -11,7 +11,7 @@ function TVShow() {
   const [searchTV, setSearchTV] = useState("");
 
   useEffect(() => {
-    getTvShows(TOP_RATED_TV_API);
+    getTvShows(DISCOVER_TV_API);
   }, []);
 
   const getTvShows = (API) => {
@@ -59,12 +59,6 @@ function TVShow() {
           </motion.button>
         </div>
       </form>
-      <h1
-        className="text-center mt-5"
-        style={{ color: "whitesmoke", fontSize: "2rem" }}
-      >
-        Top Rated TV Shows
-      </h1>
       <ul className="movies">
         <li className="d-flex gap-3">{tv && tv.map((tv) => <Shows key={tv.id} {...tv} />)}</li>
       </ul>

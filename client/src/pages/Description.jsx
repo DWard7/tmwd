@@ -44,11 +44,11 @@ function Description() {
           style={{ color: "whitesmoke" }}
           src={
             movie.backdrop_path
-              ? BACKGROUND_IMG_API + movie.backdrop_path
-              : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Zco_AzlB5030ccqs-SkdHxO_PmzfBw5sjXSKCjfaX46A9-YEg-9_vjqAHsvgQTw3kbw&usqp=CAU"
+            ? BACKGROUND_IMG_API + movie.backdrop_path
+            : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Zco_AzlB5030ccqs-SkdHxO_PmzfBw5sjXSKCjfaX46A9-YEg-9_vjqAHsvgQTw3kbw&usqp=CAU"
           }
           alt={movie.title}
-        />
+          />
       </div>
       <div className="text-center mt-3" style={{ color: "whitesmoke", fontSize: "1.3rem" }}>
         <p>{movie.overview}</p>

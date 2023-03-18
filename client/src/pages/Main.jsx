@@ -5,14 +5,14 @@ import { motion } from "framer-motion"
 import "../templates/style.css"
 
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_SECRET}&query=`;
-const TOP_RATED_API = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_SECRET}&language=en-US&page=1`;
+const DISCOVER_API = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_SECRET}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
 
 function Main() {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    getMovies(TOP_RATED_API);
+    getMovies(DISCOVER_API);
   }, []);
 
   const getMovies = (API) => {
@@ -37,6 +37,12 @@ function Main() {
 
   return (
     <div className="container mt-3">
+      <div className="d-flex justify-content-center">
+        <h1 style={{fontSize:"1.6rem"}}>Welcome to Movie Watcher</h1>
+      </div>
+        <div className="d-flex justify-content-center mb-3">
+          <h1 style={{fontSize:"1.6rem"}}>Where you can discover movies and Tv Shows.</h1>
+        </div>
       <form onSubmit={handleOnSubmit}>
         <div className="d-flex">
           <input
@@ -60,9 +66,6 @@ function Main() {
           </motion.button>
         </div>
       </form>
-      <h1 className="text-center mt-5" style={{ color: "whitesmoke", fontSize:"2rem" }}>
-        Top Rated Movies
-      </h1>
       <ul className="movies" style={{ margin: "30px" }}>
         <li className="d-flex gap-3">{movies && movies.map((movie) => <Movies key={movie.id} {...movie} />)}</li>
       </ul>
