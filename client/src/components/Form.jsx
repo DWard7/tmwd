@@ -7,7 +7,7 @@ function Form({ search, setSearch }) {
   };
   
   return (
-    <div className="container mt-3" style={{ width: "50%" }}>
+    <div className="container mt-3">
       <div className="mb-3">
         <form>
           <div className="d-flex">
@@ -22,14 +22,8 @@ function Form({ search, setSearch }) {
               name="search"
             />
             <button
-              style={{
-                height: "40px",
-                position: "absolute",
-                top: "79px",
-                left: "63.63%",
-              }}
               type="submit"
-              className="btn btn-outline-primary rounded-pill"
+              className="btn btn-primary rounded-pill"
             >
               Search
             </button>

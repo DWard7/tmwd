@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const IMG_API = "https://image.tmdb.org/t/p/w200";
 
 const Shows = ({ id, name, poster_path }) => (
-  <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+  <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
     <a href={`/${id}/description/tv`}>
       <img id="TvPoster"
         className="rounded-4"

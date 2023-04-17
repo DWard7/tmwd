@@ -10,7 +10,10 @@ const navigation = [
   { name: "TV Shows", href: "/shows", current: false },
 ];
 
-const login = [{ name: "Login", href: "/login", current: false }];
+const login = [
+  { name: "Login", href: "/login", current: false },
+  { name: "Register", href: "/signup", current: false},
+];
 const signOut = [{ name: "Logout", href: "/", current: false }];
 
 function classNames(...classes) {

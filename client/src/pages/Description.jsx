@@ -41,7 +41,6 @@ function Description() {
       <div className="d-flex justify-content-center">
         <img
           className="rounded-4 mt-5"
-          style={{ color: "whitesmoke" }}
           src={
             movie.backdrop_path
             ? BACKGROUND_IMG_API + movie.backdrop_path
@@ -50,7 +49,7 @@ function Description() {
           alt={movie.title}
           />
       </div>
-      <div className="text-center mt-3" style={{ color: "whitesmoke", fontSize: "1.3rem" }}>
+      <div className="text-center mt-3" style={{ fontSize: "1.3rem" }}>
         <p>{movie.overview}</p>
         <p >Release Date: {movie.release_date}</p>
       </div>

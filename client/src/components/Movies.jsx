@@ -5,11 +5,10 @@ import "../templates/style.css"
 const IMG_API = "https://image.tmdb.org/t/p/w200";
 
 const Movies = ({ id, title, poster_path }) => (
-  <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+  <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
       <a href={`/${id}/description/`}>
         <img id="posters"
           className="rounded-4"
-          style={{ color: "white" }}
           src={
             poster_path
               ? IMG_API + poster_path

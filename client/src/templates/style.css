@@ -1,3 +1,4 @@
+
 body{
   color:whitesmoke
 }
@@ -7,35 +8,52 @@ body{
   list-style: none;
   overflow-x: scroll;
   overflow-y: hidden;
-  height: 350px;
-  width: 50%;
+  height: 310px;
+  width: 84%;
   position: relative;
-  left: 22%;
+  left: 120px;
+}
+
+.tv{
+  display:flex;
+  list-style: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 310px;
+  width: 84%;
+  position: relative;
+  left: 120px;
 }
 
 #posters{
   max-width: fit-content;
-  height: 260px;
+  height: 235px;
   margin-top: 50px;
+  /* color: white; */
 }
 
 #TvPoster{
     max-width: fit-content;
-    height: 260px;
+    height: 235px;
     margin-top: 50px;
 }
 
 ::-webkit-scrollbar {
   height: 5px;
   width: 5px;
-  background: #fff3;
+  background: rgba(194, 191, 191, 0.952);
   -webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: whitesmoke;
+  background: gray;
   -webkit-border-radius: 1ex;
 }
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: black;
+}
+
 
 ::-webkit-scrollbar-corner {
   background: #fff3;
@@ -46,12 +64,13 @@ body{
   flex-direction: column;
   align-items: center;
   background-color: #202c34;
-  color: whitesmoke;
+  color: black;
 }
 
 #header{
-  font-size: 2rem;
   margin-bottom: 10px;
+  height: 400px;
+  width: 66%;
 }
 
 label{
@@ -66,3 +85,13 @@ label{
   background-color: #202c34;
   color: whitesmoke;
 }
+
+h1{
+  font-size: 2.2rem;
+}
+
+#searchBtn{
+  margin-left: 10px;
+}
+
+
