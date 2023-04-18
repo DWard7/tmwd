@@ -19,11 +19,17 @@ function TVShow() {
       .then((res) => res.json())
       .then((data) => {
         const tvBackDrop = data.results.map((tv) => tv.backdrop_path);
-        const randomTvImg =
-          tvBackDrop[Math.floor(Math.random() * tvBackDrop.length)];
-        setTvBackDrop(
-          `https://image.tmdb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/${randomTvImg}`
-        );
+        if (tvBackDrop.length > 0) {
+          const randomTvImg =
+            tvBackDrop[Math.floor(Math.random() * tvBackDrop.length)];
+          setTvBackDrop(
+            `https://image.tmdb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/${randomTvImg}`
+          );
+        } else {
+          setSearchTV(
+            "https://image.tmdb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)//uGy4DCmM33I7l86W7iCskNkvmLD.jpg"
+          );
+        }
       })
       .catch((err) => console.log(err));
   }, []);

@@ -88,7 +88,7 @@ const NavBar = () => {
                     )}
                     {user && (
                       <div>
-                        <span>{user.email}</span>
+                        <span>{user.username}</span>
                         {signOut.map((item) => (
                           <a
                             onClick={handleClick}

@@ -14,6 +14,12 @@ body{
   left: 120px;
 }
 
+#trending{
+  position: relative;
+  left: 120px;
+  margin-top: 15px;
+}
+
 .tv{
   display:flex;
   list-style: none;
@@ -29,7 +35,6 @@ body{
   max-width: fit-content;
   height: 235px;
   margin-top: 50px;
-  /* color: white; */
 }
 
 #TvPoster{
@@ -59,11 +64,7 @@ body{
   background: #fff3;
 }
 
-#loginRegForm{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #202c34;
+#login{
   color: black;
 }
 
@@ -82,8 +83,7 @@ label{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #202c34;
-  color: whitesmoke;
+  color: black;
 }
 
 h1{
@@ -93,5 +93,6 @@ h1{
 #searchBtn{
   margin-left: 10px;
 }
+
 
 
