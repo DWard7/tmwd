@@ -6,6 +6,7 @@ import "../templates/style.css";
 
 const DISCOVER_TV_API = `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_API_SECRET}&language=en-US&page=1`;
 const SEARCH_API_TV = `https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_API_SECRET}&query=`;
+const POPULAR_TV = `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_API_SECRET}&language=en-US&page=1`;
 
 function TVShow() {
   const [tv, setTv] = useState([]);
@@ -13,8 +14,6 @@ function TVShow() {
   const [tvBackDrop, setTvBackDrop] = useState("");
 
   useEffect(() => {
-    const POPULAR_TV = `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_API_SECRET}&language=en-US&page=1`;
-
     fetch(`${POPULAR_TV}`)
       .then((res) => res.json())
       .then((data) => {
@@ -66,10 +65,10 @@ function TVShow() {
         style={{ backgroundImage: `url('${tvBackDrop}')` }}
       >
         <div className="d-flex justify-content-center">
-          <h1 className="font-bold mt-36">Welcome to Movie Watcher</h1>
+          <h1 className="text-white font-bold mt-36">Welcome to Movie Watcher</h1>
         </div>
         <div className="d-flex justify-content-center mb-3">
-          <h1 className="font-bold">
+          <h1 className="text-white font-bold">
             Where you can discover movies and Tv Shows.
           </h1>
         </div>
@@ -86,7 +85,7 @@ function TVShow() {
             />
             <motion.button
               type="submit"
-              className="rounded-full bg-gradient-to-r from-cyan-600 to-purple-800 text-lg p-2"
+              className="text-white rounded-full bg-gradient-to-r from-cyan-600 to-purple-800 text-lg p-2"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
               id="searchBtn"
@@ -96,7 +95,7 @@ function TVShow() {
           </div>
         </form>
       </div>
-      <div className="container">
+      <div className="container mt-5">
         <ul className="tv">
           <li className="d-flex gap-3">
             {tv && tv.map((tv) => <Shows key={tv.id} {...tv} />)}

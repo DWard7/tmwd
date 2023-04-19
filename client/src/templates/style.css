@@ -1,6 +1,6 @@
 
 body{
-  color:whitesmoke
+  color: black
 }
 
 .movies{
@@ -40,7 +40,13 @@ body{
 #TvPoster{
     max-width: fit-content;
     height: 235px;
-    margin-top: 50px;
+    /* margin-top: ; */
+}
+
+#popularMovies{
+  max-width: fit-content;
+  height: 250px;
+  margin-top: 50px;
 }
 
 ::-webkit-scrollbar {

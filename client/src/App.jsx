@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
 import NavBar from "./components/NavBar";
 
+import Results from "./pages/Results";
 import Description from "./pages/Description";
 import Video from "./components/Video";
 import TVShow from "./pages/TVShow";
@@ -16,6 +17,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/results" element={<Results />} />
         <Route path="/:id/description" element={<Description />} />
         <Route path="/:id/videos" element={<Video />} />
         <Route path="/shows" element={<TVShow />} />
