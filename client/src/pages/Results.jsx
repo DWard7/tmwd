@@ -11,8 +11,8 @@ function Results() {
       <ul className="d-flex flex-wrap">
         {location.state.movies && location.state.movies.map((movie) => (
           <li key={movie.id}>
-            <p>{movie.title}</p>
             <Movies key={movie.id} {...movie} />
+            <p>{movie.title}</p>
           </li>
         ))}
       </ul>

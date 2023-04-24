@@ -19,7 +19,7 @@ function Popular() {
         }/popular?api_key=${
           process.env.REACT_APP_API_SECRET
         }&language=en-US&page=1`
-      );
+        );
       movieActive
         ? setPopularMovies(res.data.results)
         : setPopularTv(res.data.results);
@@ -30,8 +30,6 @@ function Popular() {
   const handleToggle = () => {
     setMovieActive(!movieActive);
   };
-  
-  
   return (
 
     <div className="container my-3">
@@ -49,23 +47,19 @@ function Popular() {
           {popularMovies.map((movie) => (
             <li
               className="d-flex gap-3"
-              style={{ color: "blue" }}
               key={movie.id}
             >
-              <motion.div
-                id=""
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.8 }}
-              >
+              <div>
                 <a href={`/${movie.id}/description`}>
                   <img
-                    id="popularMovies"
+                    id="posters"
                     className="rounded-4 p-2"
                     src={IMG_API + movie.poster_path}
                     alt=""
                   ></img>
+                  <p>{movie.title}</p>
                 </a>
-              </motion.div>
+              </div>
             </li>
           ))}
         </ul>
@@ -77,16 +71,17 @@ function Popular() {
               style={{ color: "blue" }}
               key={show.id}
             >
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
+              <div>
                 <a href={`/${show.id}/description`}>
                   <img
                     id="posters"
                     className="rounded-4 p-2"
                     src={IMG_API + show.poster_path}
-                    alt={show.title}
+                    alt={show.name}
                   />
+                  <p className="text-black">{show.name}</p>
                 </a>
-              </motion.div>
+              </div>
             </li>
           ))}
         </ul>

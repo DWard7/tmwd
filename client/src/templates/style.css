@@ -100,5 +100,6 @@ h1{
   margin-left: 10px;
 }
 
-
-
+#background{
+  background-repeat: no-repeat;
+}

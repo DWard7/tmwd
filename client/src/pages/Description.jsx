@@ -3,11 +3,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import "../templates/style.css";
+import Video from "../components/Video"
 
-const BACKGROUND_IMG_API = "https://image.tmdb.org/t/p/w780";
+const BACKGROUND_IMG_API = "https://image.tmdb.org/t/p/original";
 
 function Description() {
   const { id } = useParams();
+  const [showVideo, setShowVideo] = useState(false);
   const [movie, setMovie] = useState({
     backdrop_path: "",
     title: "",
@@ -23,50 +26,51 @@ function Description() {
         `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_SECRET}&language=en-US`,
         { signal: controller.signal }
       )
-      .then((res) => setMovie(res.data))
+
+      .then((res) => {
+        console.log(res.data);
+        setMovie(res.data);
+      })
       .catch((err) => console.log(err));
+
     return () => controller.abort();
   }, [id]);
 
   return (
-    <motion.div
-      className="container mt-3"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1, duration: 4 }}
-    >
-      <div className="d-flex justify-content-center">
-        <h1 style={{ color: "red", fontSize: "4rem" }}>{movie.title}</h1>
+    <div className="w-screen">
+      <div
+        style={{
+          backgroundImage: `url('${BACKGROUND_IMG_API}${movie.backdrop_path}')`,
+        }}
+        id="background"
+        className="pt-3 h-screen flex flex-col justify-end"
+        >
+        {showVideo && <Video />}
+        <div className="text-white d-flex justify-content-center">
+          <h1>{movie.title}</h1>
+        </div>
+        <div
+          className="text-white text-center mt-3"
+          style={{ fontSize: "1.3rem" }}
+        >
+          <p>{movie.overview}</p>
+          <p>Release Date: {movie.release_date}</p>
+        </div>
+        <div className="d-flex justify-content-center mt-3">
+            <motion.button
+              type="submit"
+              className="text-white rounded-full bg-gradient-to-r from-cyan-600 to-purple-800 text-lg mb-3 p-2"
+              whileHover={{ scale: 1.4 }}
+              whileTap={{ scale: 0.8 }}
+              onClick={() => setShowVideo(true)}
+            >
+              Play Trailer
+            </motion.button>
+        </div>
       </div>
-      <div className="d-flex justify-content-center">
-        <img
-          className="rounded-4 mt-5"
-          src={
-            movie.backdrop_path
-            ? BACKGROUND_IMG_API + movie.backdrop_path
-            : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Zco_AzlB5030ccqs-SkdHxO_PmzfBw5sjXSKCjfaX46A9-YEg-9_vjqAHsvgQTw3kbw&usqp=CAU"
-          }
-          alt={movie.title}
-          />
-      </div>
-      <div className="text-center mt-3" style={{ fontSize: "1.3rem" }}>
-        <p>{movie.overview}</p>
-        <p >Release Date: {movie.release_date}</p>
-      </div>
-      <div className="d-flex justify-content-center mt-3">
-        <a href={`/${id}/videos`}>
-          <motion.button
-            type="submit"
-            className="btn btn-outline-success"
-            whileHover={{ scale: 1.4 }}
-            whileTap={{ scale: 0.8 }}
-          >
-            Play Trailer
-          </motion.button>
-        </a>
-      </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default Description;
+
